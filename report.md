@@ -9,7 +9,6 @@ The objective of this project is to predict star ratings associated with user re
 ### Handling Missing Values
 
 - **Missing `Score` Values**: Identified 212,192 rows with missing `Score` values in `train.csv`. These rows were removed from the training set as they represent the target variable we aim to predict.
-  
 - **Missing `Text` and `Summary` Values**: Found 54 missing `Text` entries and 32 missing `Summary` entries after removing rows with missing `Score`. Rows with missing `Text` were dropped due to the importance of review text in prediction. Missing `Summary` values were filled with empty strings.
 
 ### Data Types and Conversion
@@ -27,15 +26,15 @@ The objective of this project is to predict star ratings associated with user re
 - **Text Preprocessing**:
 
   - **Lowercasing and Removing Non-Alphabetic Characters**: Standardized the text by converting to lowercase and removing numbers and special characters.
-  
+
   - **Tokenization and Stop Word Removal**: Split the text into tokens and removed common English stop words using NLTK's stop word list.
-  
+
   - **Stemming**: Applied Snowball Stemmer to reduce words to their root forms, thereby normalizing variations of the same word.
 
 - **TF-IDF Vectorization**:
 
   - Experimented with different values of `max_features` in `TfidfVectorizer`. Found that setting `max_features=11,000` provided the best validation accuracy.
-  
+
   - Transformed the preprocessed text into TF-IDF features to represent the importance of words in the corpus.
 
 ### Numerical Features
@@ -49,7 +48,7 @@ The objective of this project is to predict star ratings associated with user re
 - **Feature Selection**:
 
   - Experimented with different combinations of numerical features.
-  
+
   - Found that using only `HelpfulnessRatio` and `ReviewYear` as numerical features yielded the highest validation accuracy.
 
 ## Handling Class Imbalance
@@ -93,23 +92,25 @@ The objective of this project is to predict star ratings associated with user re
 ## Final Model and Results
 
 - **Features Used**:
+
   - **Textual Features**: TF-IDF vectors of preprocessed `ReviewText` with `max_features=11,000`.
   - **Numerical Features**: `HelpfulnessRatio` and `ReviewYear` scaled using `StandardScaler`.
 
 - **Classifier**: `SGDClassifier` with `loss='log_loss'`, `penalty='l2'`, `class_weight='balanced'`, and `early_stopping=True`.
 
 - **Validation Performance**:
+
   - **Validation Accuracy**: 63.04%
   - **Classification Report**:
-    
-    | Score | Precision | Recall | F1-score | Support  |
-    |-------|-----------|--------|----------|----------|
-    | 1     | 0.51      | 0.63   | 0.56     | 22,797   |
-    | 2     | 0.36      | 0.36   | 0.36     | 22,418   |
-    | 3     | 0.43      | 0.35   | 0.39     | 44,019   |
-    | 4     | 0.47      | 0.35   | 0.40     | 83,804   |
-    | 5     | 0.75      | 0.84   | 0.79     | 198,284  |
-    
+
+    | Score | Precision | Recall | F1-score | Support |
+    | ----- | --------- | ------ | -------- | ------- |
+    | 1     | 0.51      | 0.63   | 0.56     | 22,797  |
+    | 2     | 0.36      | 0.36   | 0.36     | 22,418  |
+    | 3     | 0.43      | 0.35   | 0.39     | 44,019  |
+    | 4     | 0.47      | 0.35   | 0.40     | 83,804  |
+    | 5     | 0.75      | 0.84   | 0.79     | 198,284 |
+
     - Overall Accuracy: 63.04%
     - Macro Average: Precision = 0.50, Recall = 0.51, F1-score = 0.50
     - Weighted Average: Precision = 0.61, Recall = 0.63, F1-score = 0.62
@@ -136,5 +137,4 @@ The exploration process highlighted the importance of feature selection and mode
 
 - Scikit-learn documentation: [SGDClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html)
 - NLTK documentation: [Stemming and Stopwords](https://www.nltk.org/)
-- Kaggle discussions and forums for insights on handling imbalanced datasets and text preprocessing techniques.
-
+- [CSDN](https://so.csdn.net/so/search?spm=1001.2015.3001.4498&q=%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7&t=&u=) forums for insights on handling imbalanced datasets and text preprocessing techniques.
