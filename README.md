@@ -152,3 +152,4 @@ The exploration process highlighted the importance of feature selection and mode
 - Scikit-learn documentation: [SGDClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html)
 - NLTK documentation: [Stemming and Stopwords](https://www.nltk.org/)
 - [CSDN](https://so.csdn.net/so/search?spm=1001.2015.3001.4498&q=%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7&t=&u=) forums for insights on handling imbalanced datasets and text preprocessing techniques.
+- Data resource: [Kaggle](https://www.kaggle.com/competitions/cs-506-midterm-fall-2024/)
